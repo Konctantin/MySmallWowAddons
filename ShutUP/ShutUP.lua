@@ -11,11 +11,13 @@ function(_, _, addon)
     if addon == addonName then
         oldBossBanner_OnEvent = BossBanner_OnEvent;
 
-        BossBanner_OnEvent = function(frame, event, ...)
-            if (event == "BOSS_KILL" or event == "ENCOUNTER_LOOT_RECEIVED" ) and oldBossBanner_OnEvent then
-                return frame, event, ...;
+        if oldBossBanner_OnEvent then
+            BossBanner_OnEvent = function(frame, event, ...)
+                if event == "BOSS_KILL" or event == "ENCOUNTER_LOOT_RECEIVED" then
+                    return frame, event, ...;
+                end
+                return oldBossBanner_OnEvent(frame, event, ...);
             end
-            return oldBossBanner_OnEvent(frame, event, ...);
         end
 
         CinematicFrame:HookScript("OnShow", function(...)
