@@ -16,7 +16,7 @@ local function DumpAllCurrencies()
 	-- probably id's range
 	for id = 1, 5000 do
 		local info = C_CurrencyInfo.GetCurrencyInfo(id);
-		if info and info.quantity > 0 then
+		if info and info.quantity then
 			playerInfo.Currencies[id] = info.quantity;
 		end
 	end
