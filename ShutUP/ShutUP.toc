@@ -1,0 +1,6 @@
+## Interface: 90200
+## Title: Shut UP
+## Author: Konstantin
+## Notes: Hide and disable movies and some banners
+
+ShutUP.lua

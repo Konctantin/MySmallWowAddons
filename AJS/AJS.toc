@@ -1,0 +1,7 @@
+## Interface: 90200
+## Title: Auto Junk Seller
+## Author: Konstantin
+## Notes: Sell all pure items
+## SavedVariables: AJS_IGNORED_ITEMS
+
+AJS.lua

@@ -1,0 +1,7 @@
+## Interface: 90200
+## Title: Easy Follower UP
+## Author: Konstatin
+## Version: 1.0.1
+## RequiredDep: Blizzard_GarrisonTemplates
+
+EasyFollowerUP.lua

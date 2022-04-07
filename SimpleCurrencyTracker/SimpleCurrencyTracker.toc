@@ -1,0 +1,6 @@
+## Interface: 90200
+## Title: Simple currencies tracker
+## Author: Konstantin
+## Notes: Simple currencies tracker tool
+## SavedVariables: CURRENCIES_DUMP_ALL
+SimpleCurrencyTracker.lua
