@@ -18,5 +18,7 @@ Function CopyAddon($addonFolder){
 }
 
 foreach ($addonFolder in $ADDON_LIST) {
-	CopyAddon $addonFolder
+    if ($addonFolder.Name -ne ".git") {
+	    CopyAddon $addonFolder
+    }
 }
