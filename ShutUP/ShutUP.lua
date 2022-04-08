@@ -31,8 +31,7 @@ function(_, _, addon)
             end
         end
     elseif addon == "Blizzard_TalkingHeadUI" then
-        hooksecurefunc("TalkingHeadFrame_PlayCurrent",
-        function()
+        hooksecurefunc("TalkingHeadFrame_PlayCurrent", function()
             if TalkingHeadFrame then
                 TalkingHeadFrame:Hide();
             end
