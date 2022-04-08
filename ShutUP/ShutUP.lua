@@ -1,22 +1,18 @@
 local addonName, T = ...;
 _G[addonName] = T;
 
-local oldBossBanner_OnEvent = nil;
-
 T.MainFrame = CreateFrame("Frame");
 T.MainFrame:RegisterEvent("ADDON_LOADED");
 T.MainFrame:SetScript("OnEvent",
 function(_, _, addon)
-    --print(addon)
     if addon == addonName then
-        oldBossBanner_OnEvent = BossBanner_OnEvent;
-
-        if oldBossBanner_OnEvent then
+        T.oldBossBanner_OnEvent = BossBanner_OnEvent;
+        if T.oldBossBanner_OnEvent then
             BossBanner_OnEvent = function(frame, event, ...)
                 if event == "BOSS_KILL" or event == "ENCOUNTER_LOOT_RECEIVED" then
                     return frame, event, ...;
                 end
-                return oldBossBanner_OnEvent(frame, event, ...);
+                return T.oldBossBanner_OnEvent(frame, event, ...);
             end
         end
 
