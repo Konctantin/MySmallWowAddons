@@ -72,21 +72,19 @@ local function AddAltCurrencies(tooltip, id)
                 local amount = info.Currencies[id] or 0;
                 if amount > 0 then
                     total = total + amount;
-                    table.insert(playerList, { Name = info.Name, FullName = name, Class = info.Class, Amount = amount });
+                    table.insert(playerList, { Name = info.Name, Realm = info.Realm, FullName = name, Class = info.Class, Amount = amount });
                 end
             end
         end
-        table.sort(playerList, function(a, b) return a.Name < b.Name end);
+        table.sort(playerList, function(a, b) return a.Realm < b.Realm and a.Name < b.Name end);
 
         if #playerList > 0 then
             tooltip:AddDoubleLine("===", "===");
 
             for _, info in ipairs(playerList) do
-                local clr = RAID_CLASS_COLORS[info.Class];
-                tooltip:AddDoubleLine(info.FullName,
-                    tostring(info.Amount),
-                    clr.r, clr.g, clr.b,
-                    0.5, 0.5, 0.5)
+                local name = info.Realm == playerInfo.Realm and info.Name or info.FullName;
+                local c = RAID_CLASS_COLORS[info.Class];
+                tooltip:AddDoubleLine(name, tostring(info.Amount), c.r, c.g, c.b, 0.5, 0.5, 0.5);
             end
 
             tooltip:AddDoubleLine("TOTAL", total, 0.7, 0.7, 0.7, 0.7, 0.7, 0.7);

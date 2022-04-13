@@ -2,5 +2,6 @@
 ## Title: ShutUP
 ## Author: Konstantin
 ## Notes: Hide and disable movies and some banners
+## SavedVariables: ShutUP_PLAYED
 
 ShutUP.lua

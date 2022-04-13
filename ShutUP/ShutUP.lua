@@ -1,6 +1,10 @@
 local addonName, T = ...;
 _G[addonName] = T;
 
+if not ShutUP_PLAYED then
+    ShutUP_PLAYED = {};
+end
+
 T.MainFrame = CreateFrame("Frame");
 T.MainFrame:RegisterEvent("ADDON_LOADED");
 T.MainFrame:SetScript("OnEvent",
@@ -23,12 +27,14 @@ function(_, _, addon)
             end
         end);
 
-        MovieFrame_PlayMovie = function(...)
-            if not IsModifierKeyDown() then
+        MovieFrame_PlayMovie = function(self, id)
+            if not ShutUP_PLAYED.Movies then ShutUP_PLAYED.Movies = {} end
+            if not IsModifierKeyDown() and ShutUP_PLAYED.Movies[id] then
                 GameMovieFinished();
                 print("Movie Canceled.");
                 return true;
             end
+            ShutUP_PLAYED.Movies[id] = 1;
         end
     elseif addon == "Blizzard_TalkingHeadUI" then
         hooksecurefunc("TalkingHeadFrame_PlayCurrent", function()
