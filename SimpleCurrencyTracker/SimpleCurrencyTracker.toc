@@ -2,5 +2,5 @@
 ## Title: Simple currencies tracker
 ## Author: Konstantin
 ## Notes: Simple currencies tracker tool
-## SavedVariables: CURRENCIES_DUMP_ALL
+## SavedVariables: SCT_CURRENCY_CACHE, SCT_CURRENCY_DUMP
 SimpleCurrencyTracker.lua

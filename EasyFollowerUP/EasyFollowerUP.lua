@@ -58,7 +58,7 @@ local function CreateUPButton(place, itemID, xpos, frameName)
         level = missionCompleteInfo.level;
     end
 
-    local enabled = count > 0 and level < 60;
+    local enabled = level < 60;
 
     place[buttonName].Count:SetText(count);
     place[buttonName]:SetEnabled(enabled);
